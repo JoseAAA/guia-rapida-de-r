@@ -6,15 +6,24 @@
 #                                                                         #
 ###########################################################################
 
+library(readr) 
+library(readxl)
+library(openxlsx)
+library(haven)
+library(DBI)
+library(odbc)
 
 # csv ---------------------------------------------------------------------
 
-
 # Excel -------------------------------------------------------------------
 
-
 # sql ---------------------------------------------------------------------
-
+con <- dbConnect(odbc(), 
+                 Driver = "SQL Server", 
+                 Server = "Csplcdb02\\Prdfractal", 
+                 Database = "CMPPRONOSTICOS", 
+                 UID      = "proyeccion",
+                 PWD      = "Pr0yecci0n19")
 
 # Rdata -------------------------------------------------------------------
 
