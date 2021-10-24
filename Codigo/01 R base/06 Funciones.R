@@ -6,7 +6,6 @@
 #                                                                         #
 ###########################################################################
 
-
 # Funciones de R ----------------------------------------------------------
 
 set.seed(12345)
@@ -27,7 +26,26 @@ abline(v = media + (desv_est * c(1, -1)), col = "blue")
 
 # Funciones definida por el usuario ---------------------------------------
 
+suma <- function(a,b = 2){
+  return(a + b)
+}
+
+suma(a = 5, b = 10)
+suma(5,10)
+
 # Crear una función que imprima un valor dado
+
+imprimir <- function(x) {
+  return(x)
+}
+
+imprimir(10)
+imprimir("jose")
 
 # Crear una función que me calcule la media y la desviación estandar, 
 # estos valores serán retornados en una lista
+media_dest <- function(x){
+  return(list(media = mean(x),ds = sd(x)))
+}
+
+media_dest(edad)

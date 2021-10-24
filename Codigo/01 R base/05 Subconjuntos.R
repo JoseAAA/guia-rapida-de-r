@@ -21,6 +21,8 @@ length(edad)
 mean(edad)
 sd(edad)
 
+summary(df)
+
 edad[1:10]
 edad[-(1:10)]
 
@@ -32,13 +34,14 @@ df[-(1:10),-1]
 
 # De la variable "edad" seleccionar los 10 últimos valores
 
+edad[91:100]
 n <- length(edad)
 edad[(n-9):n]
 
 # De la variable "matriz" seleccionar para la dimensión 1 los 10 
 # primeros valores y la dimensión 2 la última columna
 
-matriz[1:10,2]
+matriz[1:10,3]
 
 # De la variable "df" seleccionar los índices impares de las 
 # columnas altura y sexo
@@ -82,9 +85,9 @@ sexo[sexo == "mujer"]
 
 df[df$sexo == "mujer" & df$edad > 20 & df$altura > 170,]
 
-# De la variable "edad" seleccionar las edades mayor a la media
+# De la variable "edad" seleccionar las edades mayor a la mediana
 
-edad[edad>mean(edad)]
+edad[edad>median(edad)]
 
 # De la variable "altura" seleccionar las alturas que 
 # se encuentra en el 50% central
@@ -98,6 +101,9 @@ sexo[sexo == "mujer"]
 # De la variable "df" seleccionar las filas que son del sexo hombre, 
 # edades mayor a la mediana y altura mayor a 170 o menor a 160 
 # indicar el número de filas del data frame resultante
+
+df2 <- df[df$sexo == "hombre" & (df$altura>170 | df$altura < 160),]
+nrow(df2)
 
 
 
