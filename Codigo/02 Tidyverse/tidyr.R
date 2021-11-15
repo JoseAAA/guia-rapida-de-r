@@ -17,11 +17,11 @@ table5
 
 # pivot_longer ------------------------------------------------------------
 tidy4a <- table4a %>% 
-  pivot_longer(!country, names_to = "year", values_to = "cases")
+  pivot_longer(cols = `1999`:`2000`, names_to = "year", values_to = "cases")
 tidy4b <- table4b %>% 
-  pivot_longer(!country, names_to = "year", values_to = "population")
+  pivot_longer(cols = !country, names_to = "year", values_to = "population")
 
-left_join(tidy4a, tidy4b, by = c("country", "year"))
+inner_join(tidy4a, tidy4b, by = c("country", "year"))
 
 # pivot_wider -------------------------------------------------------------
 table2 %>%
@@ -29,9 +29,12 @@ table2 %>%
 
 # separate ----------------------------------------------------------------
 table3 %>% 
-  separate(rate, into = c("cases", "population"),sep = "/")
+  separate(rate, into = c("cases", "population"), sep = "/") %>% 
+  mutate(cases = as.numeric(cases),
+         population = as.numeric(population),
+         rate = cases/population*1000)
 
 # unite -------------------------------------------------------------------
 table5 %>% 
-  unite(new, century, year, sep = "")
+  unite(year, century, year, sep = "")
 

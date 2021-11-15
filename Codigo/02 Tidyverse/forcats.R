@@ -14,11 +14,14 @@ relig_summary <- gss_cat %>%
   summarise(
     age = mean(age, na.rm = TRUE),
     tvhours = mean(tvhours, na.rm = TRUE),
-    n = n()
-  )
+    n = n()) %>% 
+  arrange(tvhours)
 
 ggplot(relig_summary, aes(tvhours, relig)) + geom_point()
 ggplot(relig_summary, aes(tvhours, fct_reorder(relig,tvhours))) + geom_point()
+
+ggplot(relig_summary, aes(age, relig)) + geom_point()
+ggplot(relig_summary, aes(age, fct_reorder(relig,age))) + geom_point()
 
 # fct_relevel -------------------------------------------------------------
 rincome_summary <- gss_cat %>%
@@ -64,10 +67,11 @@ gss_cat %>%
 
 # fct_lump ----------------------------------------------------------------
 gss_cat %>% 
-  count(relig)
+  count(relig) %>% 
+  arrange(n)
 
 gss_cat %>%
-  mutate(relig = fct_lump(relig,n = 1)) %>%
+  mutate(relig = fct_lump(relig,n = 3,other_level = "otros")) %>%
   count(relig)
 
 
