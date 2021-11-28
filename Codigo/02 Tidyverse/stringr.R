@@ -18,6 +18,7 @@ str_c(nombres,1:4,sep = " ")
 str_c(nombres,collapse = "|")
 
 # str_sub -----------------------------------------------------------------
+str_sub(nombres,-1)
 str_sub(nombres,n)
 
 table3 %>% 
@@ -30,7 +31,7 @@ str_to_lower(nombres)
 names(iris)[4:5] <- str_to_upper(names(iris)[4:5])
 
 # str_detect --------------------------------------------------------------
-str_detect(nombres,"^[A-z]")
+str_detect(nombres,"^[JL]")
 str_detect(nombres,"[ye]$")
 str_detect(nombres,"os")
 

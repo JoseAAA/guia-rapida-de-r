@@ -32,7 +32,7 @@ table3 %>%
   separate(rate, into = c("cases", "population"), sep = "/") %>% 
   mutate(cases = as.numeric(cases),
          population = as.numeric(population),
-         rate = cases/population*1000)
+         rate = cases/population*100000)
 
 # unite -------------------------------------------------------------------
 table5 %>% 

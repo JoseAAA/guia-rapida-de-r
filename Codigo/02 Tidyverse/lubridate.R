@@ -28,7 +28,7 @@ year(fecha)
 month(fecha,label = T,abbr = F)
 isoweek(fecha)
 day(fecha)
-wday(fecha,label = T,abbr = T,week_start = 1)
+wday(fecha,label = T,abbr = F,week_start = 1)
 
 year(fecha) <- 2021
 update(fecha, year = 2020, month = 2, mday = 2, hour = 2)
@@ -52,6 +52,6 @@ fecha - dyears(1)
 
 interval(ymd("2021-10-30"),fecha)
 
-as.numeric(fecha - ymd("2001-10-30"))
+as.numeric(fecha - ymd("2021-10-30"))
 interval(ymd("2001-11-15"),fecha) / years(1)
-interval(ymd("2001-11-15"),fecha) %/% years(1)
+interval(ymd("2001-11-15"),fecha) %/% months(1)
